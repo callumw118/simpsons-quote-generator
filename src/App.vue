@@ -1,6 +1,6 @@
 <template>
   <div>
-    <quote-detail :quote="quote"/>
+    <quote-detail :characterInfo="characterInfo"/>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: "app",
   data() {
     return {
-      quote: []
+      characterInfo: []
     };
   },
   components: {
@@ -19,7 +19,7 @@ export default {
   mounted(){
     fetch("https://thesimpsonsquoteapi.glitch.me/quotes")
       .then(res => res.json())
-      .then(data => this.quote = data)
+      .then(data => this.characterInfo = data)
   }
 };
 </script>
