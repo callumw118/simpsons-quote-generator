@@ -15,6 +15,7 @@ export default {
   name: "app",
   data() {
     return {
+      // Holds all character information
       characterInfo: []
     };
   },
@@ -23,6 +24,7 @@ export default {
     "favourite-quote-list": FavouriteQuoteList
   },
   methods: {
+    // Makes call to API and sets the data returned to the characterInfo
     getQuote: function() {
       fetch("https://thesimpsonsquoteapi.glitch.me/quotes")
         .then(res => res.json())

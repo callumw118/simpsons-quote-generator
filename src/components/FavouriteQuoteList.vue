@@ -23,6 +23,7 @@ export default {
     };
   },
   mounted() {
+    // Pushes the quote to be in the favouriteQuotes array
     eventBus.$on("quote-selected", quote => this.favouriteQuotes.push(quote));
   },
   methods: {

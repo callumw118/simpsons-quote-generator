@@ -18,16 +18,19 @@ export default {
       }
   },
   props: ["characterInfo"],
-  mounted(){
-    eventBus.$on('favourite-selected', quote => this.favouriteCharacterInfo = quote)
-  },
   methods: {
+      // Sends the characterInfo that has been selected to be a favourite
     addToFavourites: function() {
       eventBus.$emit("quote-selected", this.characterInfo);
     }
   },
+  mounted(){
+      // Sets the favouriteCharacterInfo to be the one selected by user
+    eventBus.$on('favourite-selected', quote => this.favouriteCharacterInfo = quote)
+  },
   watch: {
-      // This changes the displayed quote to be the one that the user selectsÍ
+      // This changes the displayed quote to be the one that the user clicks on
+      // Watches to see if the favouriteCharacterInfo changes
     favouriteCharacterInfo: function(){
       this.characterInfo = this.favouriteCharacterInfo;
     }
