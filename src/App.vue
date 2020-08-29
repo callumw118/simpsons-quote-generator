@@ -2,13 +2,14 @@
   <div>
     <button v-on:click="getQuote">Quote Me</button>
     <quote-detail :characterInfo="characterInfo" />
-    <favourite-quote-list :selectedCharacterInfo="selectedCharacterInfo" />
+    <favourite-quote-list />
   </div>
 </template>
 
 <script>
 import QuoteDetail from "@/components/QuoteDetail";
 import FavouriteQuoteList from "@/components/FavouriteQuoteList";
+import { eventBus } from "@/main";
 
 export default {
   name: "app",
@@ -27,6 +28,9 @@ export default {
       fetch("https://thesimpsonsquoteapi.glitch.me/quotes")
         .then(res => res.json())
         .then(data => (this.characterInfo = data));
+        
+        // eventBus.$on('quote-selected', quote => this.favouriteQuotes.push(quote))
+        // console.log(this.favouriteQuotes)
     }
   }
 };
