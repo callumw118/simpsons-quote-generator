@@ -14,9 +14,8 @@ import { eventBus } from "@/main";
 export default {
   name: "app",
   data() {
-    return { 
-      characterInfo: [],
-      favouriteCharacterInfo: null,
+    return {
+      characterInfo: []
     };
   },
   components: {
@@ -28,8 +27,6 @@ export default {
       fetch("https://thesimpsonsquoteapi.glitch.me/quotes")
         .then(res => res.json())
         .then(data => (this.characterInfo = data));
-
-        eventBus.$on('favourite-selected', quote => this.favouriteCharacterInfo = quote)
     }
   }
 };

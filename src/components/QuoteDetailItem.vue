@@ -12,10 +12,24 @@ import { eventBus } from "@/main";
 
 export default {
   name: "quote-detail-item",
+  data(){
+      return {
+          favouriteCharacterInfo: null,
+      }
+  },
   props: ["characterInfo"],
+  mounted(){
+    eventBus.$on('favourite-selected', quote => this.favouriteCharacterInfo = quote)
+  },
   methods: {
     addToFavourites: function() {
       eventBus.$emit("quote-selected", this.characterInfo);
+    }
+  },
+  watch: {
+      // This changes the displayed quote to be the one that the user selectsÍ
+    favouriteCharacterInfo: function(){
+      this.characterInfo = this.favouriteCharacterInfo;
     }
   }
 };

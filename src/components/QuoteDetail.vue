@@ -7,7 +7,6 @@
         :characterInfo="detail"
       />
     </ul>
-   
   </div>
 </template>
 

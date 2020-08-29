@@ -26,10 +26,10 @@ export default {
     eventBus.$on("quote-selected", quote => this.favouriteQuotes.push(quote));
   },
   methods: {
-      handleClick(index) {
-          eventBus.$emit('favourite-selected', this.favouriteQuotes[index]);
-          console.log(this.favouriteQuotes[index])
-      }
+    // User can click on a favourite quote which will then send it's position in the favouriteQuotes array
+    handleClick(index) {
+      eventBus.$emit("favourite-selected", this.favouriteQuotes[index]);
+    }
   }
 };
 </script>
