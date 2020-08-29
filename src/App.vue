@@ -2,7 +2,7 @@
   <div>
     <button v-on:click="getQuote">Quote Me</button>
     <quote-detail :characterInfo="characterInfo" />
-    <favourite-quote-list />
+    <favourite-quote-list :favouriteCharacterInfo="favouriteCharacterInfo" />
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   data() {
     return { 
       characterInfo: [],
-      selectedCharacterInfo: null,
+      favouriteCharacterInfo: null,
     };
   },
   components: {

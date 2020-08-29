@@ -1,14 +1,15 @@
 <template>
   <div>
-      <ul>
-          <h1>{{ favouriteQuotes }}</h1>
-          <!-- <favourite-quote-list-item v-for="(quote, index) in favouriteCharacterInfo" :key="index" :quote="quote"/> -->
+      <ul v-if="favouriteQuotes.length > 0">
+          <h2>Favourite Quotes</h2>
+          <li v-for="(quote, index) in favouriteQuotes" :key="index">
+              {{ quote.quote }}
+          </li>
       </ul>
   </div>
 </template>
 
 <script>
-import FavouriteQuoteListItem from '@/components/FavouriteQuoteListItem';
 import { eventBus } from '@/main';
 
 export default {
@@ -18,9 +19,6 @@ export default {
         return {
             favouriteQuotes: []
         }
-    },
-    components: {
-        'favourite-quote-list-item': FavouriteQuoteListItem
     },
     mounted(){
         eventBus.$on('quote-selected', quote => this.favouriteQuotes.push(quote))
