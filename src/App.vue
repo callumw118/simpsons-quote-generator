@@ -2,7 +2,7 @@
   <div>
     <button v-on:click="getQuote">Quote Me</button>
     <quote-detail :characterInfo="characterInfo" />
-    <favourite-quote-list :favouriteCharacterInfo="favouriteCharacterInfo" />
+    <favourite-quote-list />
   </div>
 </template>
 
@@ -28,9 +28,8 @@ export default {
       fetch("https://thesimpsonsquoteapi.glitch.me/quotes")
         .then(res => res.json())
         .then(data => (this.characterInfo = data));
-        
-        // eventBus.$on('quote-selected', quote => this.favouriteQuotes.push(quote))
-        // console.log(this.favouriteQuotes)
+
+        eventBus.$on('favourite-selected', quote => this.favouriteCharacterInfo = quote)
     }
   }
 };

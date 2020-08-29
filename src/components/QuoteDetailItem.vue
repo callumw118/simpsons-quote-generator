@@ -16,7 +16,6 @@ export default {
   methods: {
     addToFavourites: function() {
       eventBus.$emit("quote-selected", this.characterInfo);
-      console.log(this.characterInfo);
     }
   }
 };
