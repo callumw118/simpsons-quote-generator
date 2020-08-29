@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button v-on:click="getQuote">Quote Me</button>
     <quote-detail :characterInfo="characterInfo"/>
   </div>
 </template>
@@ -16,10 +17,12 @@ export default {
   components: {
     'quote-detail': QuoteDetail
   },
-  mounted(){
-    fetch("https://thesimpsonsquoteapi.glitch.me/quotes")
+  methods: {
+    getQuote: function() {
+      fetch("https://thesimpsonsquoteapi.glitch.me/quotes")
       .then(res => res.json())
       .then(data => this.characterInfo = data)
+    }
   }
 };
 </script>

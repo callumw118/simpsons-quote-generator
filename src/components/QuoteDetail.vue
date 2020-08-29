@@ -3,6 +3,7 @@
       <ul>
           <quote-detail-item v-for="(detail, index) in characterInfo" :key="index" :characterInfo="detail"/>
       </ul>
+      <button>Add To Favourites</button>
   </div>
 </template>
 
