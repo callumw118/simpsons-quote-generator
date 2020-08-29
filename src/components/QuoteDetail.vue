@@ -3,7 +3,6 @@
       <ul>
           <quote-detail-item v-for="(detail, index) in characterInfo" :key="index" :characterInfo="detail"/>
       </ul>
-      <!-- <h1 v-for="(detail, index) in characterInfo" :key="index">{{ detail.quote }}</h1> -->
   </div>
 </template>
 
