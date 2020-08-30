@@ -3,7 +3,7 @@
     <header-view />
     <button class="quote-button" v-on:click="getQuote">Quote Me</button>
     <quote-detail :characterInfo="characterInfo" />
-    <audio src="../src/assets/the-simpsons.mp3" controls autoplay></audio>
+    <!-- <audio src="../src/assets/the-simpsons.mp3" controls autoplay></audio> -->
     <favourite-quote-list />
   </div>
 </template>

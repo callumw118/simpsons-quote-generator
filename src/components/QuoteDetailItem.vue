@@ -1,12 +1,11 @@
 <template>
-<div>
-  <li>
-    <h1>{{ characterInfo.character }}</h1>
+  <div>
+    <section>
+      <h1>{{ characterInfo.character }}</h1>
+      <h3>{{ characterInfo.quote }}</h3>
+    <button class="quote-button" v-on:click="addToFavourites">Add To Favourites</button>  
+    </section>
     <img :src="characterInfo.image" alt />
-    <h3>{{ characterInfo.quote }}</h3>
-    <button class="quote-button" v-on:click="addToFavourites">Add To Favourites</button>
-  </li>
-  
   </div>
 </template>
 
@@ -15,26 +14,29 @@ import { eventBus } from "@/main";
 
 export default {
   name: "quote-detail-item",
-  data(){
-      return {
-          favouriteCharacterInfo: null,
-      }
+  data() {
+    return {
+      favouriteCharacterInfo: null
+    };
   },
   props: ["characterInfo"],
   methods: {
-      // Sends the characterInfo that has been selected to be a favourite
+    // Sends the characterInfo that has been selected to be a favourite
     addToFavourites: function() {
       eventBus.$emit("quote-selected", this.characterInfo);
     }
   },
-  mounted(){
-      // Sets the favouriteCharacterInfo to be the one selected by user
-    eventBus.$on('favourite-selected', quote => this.favouriteCharacterInfo = quote)
+  mounted() {
+    // Sets the favouriteCharacterInfo to be the one selected by user
+    eventBus.$on(
+      "favourite-selected",
+      quote => (this.favouriteCharacterInfo = quote)
+    );
   },
   watch: {
-      // This changes the displayed quote to be the one that the user clicks on
-      // Watches to see if the favouriteCharacterInfo changes
-    favouriteCharacterInfo: function(){
+    // This changes the displayed quote to be the one that the user clicks on
+    // Watches to see if the favouriteCharacterInfo changes
+    favouriteCharacterInfo: function() {
       this.characterInfo = this.favouriteCharacterInfo;
     }
   }
@@ -42,34 +44,29 @@ export default {
 </script>
 
 <style scoped>
-li {
-    margin: 0;
-    width: 60%;
-    display: flex;
-    /* flex-flow: wrap; */
-}
 
-h1 {
-    width: auto;
+section {
+    display: flex;
+    flex-flow: wrap;
+    width: 30%;
+    text-align: left;
 }
 
 h1, h3 {
-    text-align: left;
-    margin-right: 20px;
-}
-
-h3 {
-    padding-top: 10px;
+    margin: 5px;
 }
 
 img {
+    position: fixed;
     width: 222px;
     height: 367px;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
 }
 
 button {
-    position: absolute;
-    top: 80%;
-    left: 43%;
+    margin-top: 20px;
 }
 </style>
