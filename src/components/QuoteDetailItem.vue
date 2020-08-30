@@ -3,7 +3,8 @@
     <section>
       <h1>{{ characterInfo.character }}</h1>
       <h3>{{ characterInfo.quote }}</h3>
-    <button class="quote-button" v-on:click="addToFavourites">Add To Favourites</button>  
+    <button class="quote-button" v-on:click="addToFavourites">Add To Favourites</button>
+    <audio id="audio" src="https://springfieldfiles.com/sounds/homer/woohoo.mp3"></audio>
     </section>
     <img :src="characterInfo.image" alt />
   </div>
@@ -24,7 +25,11 @@ export default {
     // Sends the characterInfo that has been selected to be a favourite
     addToFavourites: function() {
       eventBus.$emit("quote-selected", this.characterInfo);
-    }
+      audio.play();
+    },
+    play() {
+        var audio = document.getElementById("audio");
+      }
   },
   mounted() {
     // Sets the favouriteCharacterInfo to be the one selected by user
@@ -44,7 +49,6 @@ export default {
 </script>
 
 <style scoped>
-
 section {
     display: flex;
     flex-flow: wrap;
@@ -64,9 +68,19 @@ img {
     left: 50%;
     margin-top: -50px;
     margin-left: -100px;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
 button {
     margin-top: 20px;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 </style>

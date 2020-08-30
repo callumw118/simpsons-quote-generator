@@ -3,7 +3,6 @@
     <header-view />
     <button class="quote-button" v-on:click="getQuote">Quote Me</button>
     <quote-detail :characterInfo="characterInfo" />
-    <!-- <audio src="../src/assets/the-simpsons.mp3" controls autoplay></audio> -->
     <favourite-quote-list />
   </div>
 </template>
@@ -43,6 +42,7 @@ body {
   margin: 0;
   background: url("../src/assets/simpsons-background.jpg");
   text-align: center;
+  user-select: none;
 }
 
 li {

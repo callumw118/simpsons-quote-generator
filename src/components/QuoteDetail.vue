@@ -20,6 +20,7 @@ export default {
     "quote-detail-item": QuoteDetailItem
   }
 };
+
 </script>
 
 <style>
