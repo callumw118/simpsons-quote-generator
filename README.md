@@ -1,4 +1,4 @@
-# lotr
+# The Simpsons Quote Generator
 
 ## Project setup
 ```
