@@ -49,5 +49,15 @@ li {
   padding: 5px;
   border: 3px solid #FDFB1D;
   outline: 2px solid black;
+  transition: 0.5s;
+}
+
+li:hover{
+  background-color: #FDFB1D;
+}
+
+li:active{
+  box-shadow: 0 5px #666;
+  transform: translateY(20px);
 }
 </style>
