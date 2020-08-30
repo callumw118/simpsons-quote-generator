@@ -24,7 +24,13 @@ export default {
   },
   mounted() {
     // Pushes the quote to be in the favouriteQuotes array
-    eventBus.$on("quote-selected", quote => this.favouriteQuotes.push(quote));
+    eventBus.$on("quote-selected", quote => {
+      if (!this.favouriteQuotes.includes(quote)){
+        this.favouriteQuotes.push(quote);
+        // console.log("working")
+      }
+    })
+    // eventBus.$on("quote-selected", quote => this.favouriteQuotes.push(quote));
   },
   methods: {
     // User can click on a favourite quote which will then send it's position in the favouriteQuotes array
