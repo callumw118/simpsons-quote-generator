@@ -2,9 +2,9 @@
 <div>
   <li>
     <h1>{{ characterInfo.character }}</h1>
+    <img :src="characterInfo.image" alt />
     <h3>{{ characterInfo.quote }}</h3>
     <button class="quote-button" v-on:click="addToFavourites">Add To Favourites</button>
-    <img :src="characterInfo.image" alt />
   </li>
   
   </div>
@@ -46,11 +46,16 @@ li {
     margin: 0;
     width: 60%;
     display: flex;
+    /* flex-flow: wrap; */
+}
+
+h1 {
+    width: auto;
 }
 
 h1, h3 {
     text-align: left;
-    margin-right: 70px;
+    margin-right: 20px;
 }
 
 h3 {
@@ -65,6 +70,6 @@ img {
 button {
     position: absolute;
     top: 80%;
-    left: 10%;
+    left: 43%;
 }
 </style>
