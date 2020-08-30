@@ -1,10 +1,12 @@
 <template>
+<div>
   <li>
     <h1>{{ characterInfo.character }}</h1>
     <h3>{{ characterInfo.quote }}</h3>
     <img :src="characterInfo.image" alt />
-    <button v-on:click="addToFavourites">Add To Favourites</button>
   </li>
+  <button v-on:click="addToFavourites">Add To Favourites</button>
+  </div>
 </template>
 
 <script>
@@ -38,5 +40,19 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+li {
+    margin: 0;
+    width: 50%;
+    display: flex;
+}
+
+h1, h3 {
+    margin-right: 70px;
+}
+
+img {
+    width: 222px;
+    height: 367px;
+}
 </style>
