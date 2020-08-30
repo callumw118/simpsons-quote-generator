@@ -25,11 +25,7 @@ export default {
     // Sends the characterInfo that has been selected to be a favourite
     addToFavourites: function() {
       eventBus.$emit("quote-selected", this.characterInfo);
-      audio.play();
-    },
-    play() {
-        var audio = document.getElementById("audio");
-      }
+    }
   },
   mounted() {
     // Sets the favouriteCharacterInfo to be the one selected by user
