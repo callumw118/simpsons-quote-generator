@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="favourite-list">
     <ul v-if="favouriteQuotes.length > 0">
       <h2>Favourite Quotes</h2>
       <li
@@ -35,5 +35,19 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+#favourite-list {
+  position: absolute;
+  top: 30%;
+  right: 5%;
+  width: 30%;
+}
+
+li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 5px;
+  border: 3px solid #FDFB1D;
+  outline: 2px solid black;
+}
 </style>

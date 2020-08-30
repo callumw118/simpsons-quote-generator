@@ -3,9 +3,10 @@
   <li>
     <h1>{{ characterInfo.character }}</h1>
     <h3>{{ characterInfo.quote }}</h3>
+    <button class="quote-button" v-on:click="addToFavourites">Add To Favourites</button>
     <img :src="characterInfo.image" alt />
   </li>
-  <button v-on:click="addToFavourites">Add To Favourites</button>
+  
   </div>
 </template>
 
@@ -43,16 +44,27 @@ export default {
 <style scoped>
 li {
     margin: 0;
-    width: 50%;
+    width: 60%;
     display: flex;
 }
 
 h1, h3 {
+    text-align: left;
     margin-right: 70px;
+}
+
+h3 {
+    padding-top: 10px;
 }
 
 img {
     width: 222px;
     height: 367px;
+}
+
+button {
+    position: absolute;
+    top: 80%;
+    left: 10%;
 }
 </style>

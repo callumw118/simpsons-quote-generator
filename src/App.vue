@@ -44,6 +44,10 @@ body {
   text-align: center;
 }
 
+li {
+  list-style: none;
+}
+
 .quote-button{
   background:#54B4E6;
   background-image: -webkit-linear-gradient(top, #54B4E6, #1E62D0);
