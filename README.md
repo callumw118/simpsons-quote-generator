@@ -1,6 +1,8 @@
 # The Simpsons Quote Generator
 A simple front-end website which will randomly generate a quote from The Simpsons using The Simpsons API. Displays name, quote and picture of character. Also allows user to save a quote to a list of favourites. 
 
+![Screenshot of App](/src/assets/screenshot.png?raw=true "Screenshot of App")
+
 ## Project setup
 ```
 npm install
